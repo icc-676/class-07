@@ -10,9 +10,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-import com.abs.clase07.dummy.DummyContent
-import com.abs.clase07.dummy.DummyContent.DummyItem
-
 /**
  * A fragment representing a list of Items.
  * Activities containing this fragment MUST implement the
@@ -24,14 +21,8 @@ class ProductFragment : Fragment() {
     private var columnCount = 1
 
     private var listener: OnListFragmentInteractionListener? = null
+    //Esto lo cambiaria por un val private lateinit
 
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//
-//        arguments?.let {
-//            columnCount = it.getInt(ARG_COLUMN_COUNT)
-//        }
-//    }
     val products = mutableListOf<Product>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -77,10 +68,6 @@ class ProductFragment : Fragment() {
     }
 
     companion object {
-
-        // TODO: Customize parameter argument names
-        const val ARG_COLUMN_COUNT = "column-count"
-
         fun newInstance(): ProductFragment{
             return ProductFragment()
         }

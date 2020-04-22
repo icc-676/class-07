@@ -8,15 +8,9 @@ import android.widget.TextView
 
 
 import com.abs.clase07.ProductFragment.OnListFragmentInteractionListener
-import com.abs.clase07.dummy.DummyContent.DummyItem
-
 import kotlinx.android.synthetic.main.fragment_product.view.*
 
-/**
- * [RecyclerView.Adapter] that can display a [DummyItem] and makes a call to the
- * specified [OnListFragmentInteractionListener].
- * TODO: Replace the implementation with code for your data type.
- */
+
 class MyProductRecyclerViewAdapter(
     private val mValues: List<Product>,
     private val mListener: OnListFragmentInteractionListener?
@@ -41,9 +35,7 @@ class MyProductRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = mValues[position]
-        holder.mIdView.text = item.name
-
-
+        holder.productNameTextView.text = item.name
         with(holder.mView) {
             tag = item
             setOnClickListener(mOnClickListener)
@@ -53,11 +45,11 @@ class MyProductRecyclerViewAdapter(
     override fun getItemCount(): Int = mValues.size
 
     inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
-        val mIdView: TextView = mView.item_number
+        val productNameTextView: TextView = mView.item_number
 
 
         override fun toString(): String {
-            return super.toString() + " '" + mIdView.text + "'"
+            return super.toString() + " '" + productNameTextView.text + "'"
         }
     }
 }
